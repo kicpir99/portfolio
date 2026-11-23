@@ -40,7 +40,7 @@ export function ProjectsShowcase({ lang }: ProjectsShowcaseProps) {
           </div>
 
           <div
-            className="flex flex-wrap items-center gap-3"
+            className="flex flex-wrap items-center gap-1.5 sm:gap-2"
             role="tablist"
             aria-label="Filtr kategorii projektów"
           >

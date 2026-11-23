@@ -26,12 +26,12 @@ export function ArchitectureAndStack({ lang }: ArchitectureAndStackProps) {
         {/* 4-column architecture pipeline UI mock */}
         <div
           data-ui="architecture-pipeline"
-          className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6"
+          className="mt-1 grid grid-cols-1 gap-2.5 sm:grid-cols-2 md:mt-2 lg:grid-cols-4 lg:gap-6"
         >
           {copy.nodes.map((node, index) => (
             <div
               key={node.label}
-              className="flex min-w-0 flex-col justify-between rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--surface)] p-3 sm:p-3.5"
+              className="flex min-w-0 flex-col justify-between rounded-[var(--r-lg)] border border-[var(--line)] bg-[var(--surface)] p-3 sm:p-3.5 lg:min-h-[192px]"
             >
               <div>
                 <div className="flex items-center justify-between gap-3">
@@ -41,19 +41,19 @@ export function ArchitectureAndStack({ lang }: ArchitectureAndStackProps) {
                   <img
                     src={node.icon}
                     alt=""
-                    width={28}
-                    height={28}
-                    className={`h-7 w-7 object-contain ${node.invertOnDark ? "dark:invert" : ""}`}
+                    width={36}
+                    height={36}
+                    className={`h-8 w-8 object-contain lg:h-9 lg:w-9 ${node.invertOnDark ? "dark:invert" : ""}`}
                   />
                 </div>
-                <div className="mt-1 text-[16px] font-semibold text-[var(--ink)]">
+                <div className="mt-2 text-[16px] font-semibold text-[var(--ink)]">
                   {node.label}
                 </div>
-                <p className="mt-0.5 text-[15px] leading-snug text-[var(--ink)]">
+                <p className="mt-0.5 text-[15px] leading-snug text-[var(--ink)] lg:text-[16px]">
                   {node.detail}
                 </p>
               </div>
-              <div className="flow-line mt-2" aria-hidden="true" />
+              <div className="flow-line mt-2.5" aria-hidden="true" />
             </div>
           ))}
         </div>
@@ -66,7 +66,7 @@ export function ArchitectureAndStack({ lang }: ArchitectureAndStackProps) {
               <ul className="mt-1.5 divide-y divide-[var(--line)]">
                 {group.items.map((item) => (
                   <li key={item.name} className="flex items-center justify-between gap-2 py-1">
-                    <span className="text-[14px] font-medium text-[var(--ink)] sm:text-[15px]">
+                    <span className="text-[14px] font-medium text-[var(--ink)] sm:text-[16px]">
                       {item.name}
                     </span>
                     {item.icon ? (

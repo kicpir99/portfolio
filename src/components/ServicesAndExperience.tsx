@@ -35,7 +35,7 @@ export function ServicesAndExperience({ lang }: ServicesAndExperienceProps) {
               <div>
                 <div
                   data-ui="service-preview"
-                  className="mb-3 flex flex-col justify-between gap-2 rounded-[var(--r-md)] border border-[var(--line)] bg-[var(--bg)] p-3.5 md:h-[235px] lg:h-[165px]"
+                  className="mb-3 flex flex-col justify-between gap-2 rounded-[var(--r-md)] border border-[var(--line)] bg-[var(--bg)] p-3.5 md:h-[240px] lg:h-[214px]"
                 >
                   <div className="flex items-center justify-between gap-2 border-b border-[var(--line)] pb-2">
                     <span className="font-mono-label text-[11px] uppercase tracking-wide text-[var(--muted)]">
@@ -43,17 +43,17 @@ export function ServicesAndExperience({ lang }: ServicesAndExperienceProps) {
                     </span>
                     <span className="h-2 w-2 rounded-full bg-[var(--status)]" aria-hidden="true" />
                   </div>
-                  <div className="flex items-center gap-2.5 py-1">
+                  <div className="flex items-center gap-3 py-1">
                     {service.icons.map((iconSrc) => (
                       <span
                         key={iconSrc}
-                        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[8px] border border-[var(--line)] bg-[var(--surface)] p-1.5 lg:h-10 lg:w-10"
+                        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[8px] border border-[var(--line)] bg-[var(--surface)] p-1.5 lg:h-11 lg:w-11"
                       >
                         <img
                           src={iconSrc}
                           alt=""
-                          width={24}
-                          height={24}
+                          width={28}
+                          height={28}
                           className="h-6 w-6 object-contain lg:h-7 lg:w-7"
                         />
                       </span>
@@ -66,12 +66,12 @@ export function ServicesAndExperience({ lang }: ServicesAndExperienceProps) {
                 </div>
 
                 <h3 className="text-[var(--ink)]">{service.title[lang]}</h3>
-                <p className="mt-1 text-[15px] leading-snug text-[var(--ink)] lg:text-[16px]">
+                <p className="mt-1 text-[16px] leading-snug text-[var(--ink)]">
                   {service.description[lang]}
                 </p>
               </div>
 
-              <ul className="mt-2.5 space-y-1 text-[14px] text-[var(--ink)] lg:text-[15px]">
+              <ul className="mt-2.5 space-y-1 text-[15px] text-[var(--ink)] lg:text-[16px]">
                 {service.deliverables[lang].map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <span

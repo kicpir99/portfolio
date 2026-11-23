@@ -16,7 +16,7 @@ export function Navbar({ lang, onChangeLang }: NavbarProps) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeHref, setActiveHref] = useState<string>("#projekty");
+  const [activeHref, setActiveHref] = useState<string>("#top");
 
   useEffect(() => {
     setMounted(true);
@@ -24,25 +24,32 @@ export function Navbar({ lang, onChangeLang }: NavbarProps) {
 
   useEffect(() => {
     const ids = ["top", "projekty", "architektura", "wspolpraca", "doswiadczenie", "kontakt"];
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
-    if (!elements.length) return;
+    let raf = 0;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]?.target.id) {
-          setActiveHref(`#${visible[0].target.id}`);
+    const updateActive = () => {
+      raf = 0;
+      let current = "#top";
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 160) {
+          current = `#${id}`;
         }
-      },
-      { threshold: [0.25, 0.55], rootMargin: "-72px 0px -30% 0px" }
-    );
+      }
+      setActiveHref(current);
+    };
 
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(updateActive);
+    };
+
+    updateActive();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   const isDark = mounted ? resolvedTheme === "dark" : true;
@@ -67,11 +74,11 @@ export function Navbar({ lang, onChangeLang }: NavbarProps) {
           href="#top"
           className="inline-flex min-h-[44px] shrink-0 items-center gap-2 whitespace-nowrap font-semibold tracking-tight text-[var(--ink)]"
         >
+          <span className="text-[15px]">{SITE_META.name}</span>
           <span
-            className="inline-block h-3.5 w-3.5 shrink-0 rounded-full border-2 border-[var(--action)]"
+            className="inline-block h-2.5 w-2.5 shrink-0 rounded-full border-2 border-[var(--action)]"
             aria-hidden="true"
           />
-          <span className="text-[15px]">{SITE_META.name}</span>
         </a>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Główna nawigacja">
@@ -82,10 +89,8 @@ export function Navbar({ lang, onChangeLang }: NavbarProps) {
                 key={item.href}
                 href={item.href}
                 aria-current={isCurrent ? "location" : undefined}
-                className={`inline-flex min-h-[44px] items-center whitespace-nowrap text-[15px] font-medium transition-colors ${
-                  isCurrent
-                    ? "text-[var(--action)] underline decoration-2 underline-offset-8"
-                    : "text-[var(--ink)] hover:text-[var(--action)]"
+                className={`nav-link ${
+                  isCurrent ? "text-[var(--action)]" : "text-[var(--ink)] hover:text-[var(--action)]"
                 }`}
               >
                 {item.label}

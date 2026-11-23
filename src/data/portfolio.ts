@@ -172,7 +172,7 @@ export const UI_COPY: Record<
       filters: [
         { id: "all", label: "Wszystkie" },
         { id: "python-ai", label: "Python i AI" },
-        { id: "web-ecommerce", label: "Web i E-commerce" },
+        { id: "web-ecommerce", label: "Web / Sklepy" },
         { id: "commercial", label: "Komercyjne" },
       ],
       commercialBadge: "Projekt komercyjny",
@@ -266,7 +266,7 @@ export const UI_COPY: Record<
       filters: [
         { id: "all", label: "All" },
         { id: "python-ai", label: "Python & AI" },
-        { id: "web-ecommerce", label: "Web & E-commerce" },
+        { id: "web-ecommerce", label: "Web & Stores" },
         { id: "commercial", label: "Commercial" },
       ],
       commercialBadge: "Paid client project",
@@ -572,7 +572,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     id: "automation-ai",
-    title: { pl: "Playwright, Scraping i Gemini AI", en: "Playwright, Scraping & Gemini AI" },
+    title: { pl: "Narzędzia Python, Playwright i AI", en: "Python, Playwright & AI Tools" },
     items: [
       { name: "Playwright", icon: "/assets/icons/playwright.svg" },
       { name: "Google Gemini API", icon: "/assets/icons/google-gemini.svg" },

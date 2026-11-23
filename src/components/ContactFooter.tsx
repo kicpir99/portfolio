@@ -116,11 +116,11 @@ export function ContactFooter({ lang }: ContactFooterProps) {
               </button>
               <a href={`mailto:${SITE_META.email}`} className="btn-secondary">
                 <Mail className="h-4 w-4" />
-                <span>{SITE_META.email}</span>
+                <span>{lang === "pl" ? "Otwórz pocztę" : "Send email"}</span>
               </a>
             </div>
 
-            <div className="mt-1.5 flex flex-wrap gap-2 sm:mt-3.5 sm:gap-3">
+            <div className="mt-2 flex flex-wrap gap-2 sm:mt-3 sm:gap-3">
               <a href={SITE_META.cv.pl} download className="btn-secondary">
                 <Download className="h-4 w-4" />
                 <span>{copy.cvPl}</span>
@@ -131,7 +131,7 @@ export function ContactFooter({ lang }: ContactFooterProps) {
               </a>
             </div>
 
-            <div className="mt-1.5 flex flex-wrap gap-2 sm:mt-3.5 sm:gap-3">
+            <div className="mt-2 flex flex-wrap gap-2 sm:mt-3 sm:gap-3">
               <a
                 href={SITE_META.github}
                 target="_blank"
@@ -257,7 +257,7 @@ export function ContactFooter({ lang }: ContactFooterProps) {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder={copy.form.messagePlaceholder}
-                className="mt-1 h-[48px] w-full rounded-[var(--r-btn)] border border-[var(--line-strong)] bg-[var(--surface)] p-2 text-[15px] text-[var(--ink)] focus:border-[var(--action)] sm:h-[82px] sm:p-3"
+                className="mt-1 h-[44px] w-full rounded-[var(--r-btn)] border border-[var(--line-strong)] bg-[var(--surface)] p-2 text-[15px] text-[var(--ink)] focus:border-[var(--action)] sm:h-[64px] sm:p-3 lg:h-[82px]"
               />
               {errors.message && (
                 <p className="mt-1 text-[13px] text-red-500">{errors.message}</p>
@@ -276,11 +276,11 @@ export function ContactFooter({ lang }: ContactFooterProps) {
           </form>
         </div>
 
-        <div className="closing__links flex flex-col gap-5">
-          <div className="hidden gap-6 lg:grid lg:grid-cols-4">
+        <div className="closing__links flex flex-col gap-2.5 lg:gap-4">
+          <div className="hidden gap-x-6 gap-y-2.5 md:grid md:grid-cols-2 lg:grid-cols-4">
             <div>
               <p className="text-[16px] font-semibold text-[var(--ink)]">{SITE_META.name}</p>
-              <p className="mt-2 text-[16px] text-[var(--ink)]">
+              <p className="mt-1 text-[15px] text-[var(--ink)] lg:mt-2 lg:text-[16px]">
                 Python / Backend Developer · Django, FastAPI, PostgreSQL, Docker
               </p>
             </div>
@@ -288,7 +288,7 @@ export function ContactFooter({ lang }: ContactFooterProps) {
               <p className="text-[16px] font-semibold text-[var(--ink)]">
                 {lang === "pl" ? "Sekcje strony" : "Navigation"}
               </p>
-              <ul className="mt-2 space-y-1.5 text-[15px] text-[var(--ink)]">
+              <ul className="mt-1 space-y-1 text-[14px] text-[var(--ink)] lg:mt-2 lg:space-y-1.5 lg:text-[15px]">
                 <li><a href="#projekty" className="hover:text-[var(--action)]">{UI_COPY[lang].nav.projects}</a></li>
                 <li><a href="#architektura" className="hover:text-[var(--action)]">{UI_COPY[lang].nav.stack}</a></li>
                 <li><a href="#wspolpraca" className="hover:text-[var(--action)]">{UI_COPY[lang].nav.services}</a></li>
@@ -299,7 +299,7 @@ export function ContactFooter({ lang }: ContactFooterProps) {
               <p className="text-[16px] font-semibold text-[var(--ink)]">
                 {lang === "pl" ? "Wybrane repozytoria" : "Repositories"}
               </p>
-              <ul className="mt-2 space-y-1.5 text-[15px] text-[var(--ink)]">
+              <ul className="mt-1 space-y-1 text-[14px] text-[var(--ink)] lg:mt-2 lg:space-y-1.5 lg:text-[15px]">
                 <li><a href="https://github.com/kicpir99/BeatHub" target="_blank" rel="noreferrer" className="hover:text-[var(--action)]">BeatHub (Django)</a></li>
                 <li><a href="https://github.com/kicpir99/vinted-monitor-showcase" target="_blank" rel="noreferrer" className="hover:text-[var(--action)]">Bot Vinted (PyQt6)</a></li>
                 <li><a href="https://github.com/kicpir99/job-hunter-bot" target="_blank" rel="noreferrer" className="hover:text-[var(--action)]">Job Hunter Bot (Gemini)</a></li>
@@ -310,7 +310,7 @@ export function ContactFooter({ lang }: ContactFooterProps) {
               <p className="text-[16px] font-semibold text-[var(--ink)]">
                 {lang === "pl" ? "Dokumenty i kontakt" : "Documents & links"}
               </p>
-              <ul className="mt-2 space-y-1.5 text-[15px] text-[var(--ink)]">
+              <ul className="mt-1 space-y-1 text-[14px] text-[var(--ink)] lg:mt-2 lg:space-y-1.5 lg:text-[15px]">
                 <li><a href={`mailto:${SITE_META.email}`} className="hover:text-[var(--action)]">{SITE_META.email}</a></li>
                 <li><span>{SITE_META.phone}</span></li>
                 <li><a href={SITE_META.cv.pl} download className="hover:text-[var(--action)]">{copy.cvPl}</a></li>

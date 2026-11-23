@@ -92,21 +92,21 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(32px, 3.8vw, 52px);
+  font-size: clamp(34px, 3.8vw, 52px);
   line-height: 1.06;
   letter-spacing: -0.035em;
   font-weight: 600;
 }
 
 h2 {
-  font-size: clamp(24px, 2.4vw, 36px);
+  font-size: clamp(26px, 2.5vw, 36px);
   line-height: 1.14;
   letter-spacing: -0.025em;
   font-weight: 600;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: clamp(18px, 1.35vw, 20px);
   line-height: 1.25;
   letter-spacing: -0.015em;
   font-weight: 600;
@@ -297,7 +297,7 @@ footer.closing > .wrap {
     justify-content: center;
     gap: 6px;
     min-height: 44px;
-    padding: 0 8px;
+    padding: 0 6px;
     border: 0;
     border-bottom: 2px solid transparent;
     background: transparent;
@@ -316,6 +316,37 @@ footer.closing > .wrap {
   .tab-btn[aria-selected="true"] {
     color: var(--ink);
     border-bottom-color: var(--action);
+  }
+
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.14s ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 6px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--action);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.18s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link[aria-current="location"]::after {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 }
 

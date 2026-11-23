@@ -46,7 +46,7 @@ export function Hero({ lang }: HeroProps) {
   }, []);
 
   return (
-    <section className="hero" aria-label={copy.hero.headline}>
+    <section className="hero" data-enter aria-label={copy.hero.headline}>
       <div className="wrap h-full">
         <div className="hero-text hero-split hero-enter grid grid-cols-1 grid-rows-[auto_minmax(0,1fr)] items-start gap-5 lg:grid-cols-12 lg:grid-rows-1 lg:gap-6">
           <div className="hero-copy flex min-w-0 flex-col lg:col-span-6 lg:h-full">

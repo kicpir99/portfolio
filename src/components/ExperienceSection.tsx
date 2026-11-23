@@ -37,10 +37,10 @@ export function ExperienceSection({ lang }: ExperienceSectionProps) {
                       {item.period}
                     </span>
                   </div>
-                  <div className="text-[13px] font-medium text-[var(--muted)] lg:text-[14px]">
+                  <div className="text-[14px] font-medium text-[var(--muted)]">
                     {item.org} · {item.location}
                   </div>
-                  <p className="mt-0.5 text-[15px] leading-snug text-[var(--ink)] lg:text-[16px]">
+                  <p className="mt-0.5 text-[16px] leading-snug text-[var(--ink)]">
                     {item.details[lang]}
                   </p>
                 </li>

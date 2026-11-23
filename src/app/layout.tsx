@@ -59,6 +59,12 @@ export default function RootLayout({
         <meta name="page-type" content="software" />
         <meta name="site-kind" content="software" />
         <meta name="theme-color" content="#0a0d14" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('m-enter');setTimeout(function(){document.documentElement.classList.add('m-enter-done')},700);",
+          }}
+        />
       </head>
       <body>
         {/* Dealt: kind=software, palette=blue-black-cornflower, type=manrope, hero=triptych, nav=nav-centre, footer=footer-statement, close=close-type, rhythm=dark-band, buttons=solid, mark=ring */}
